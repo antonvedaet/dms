@@ -71,7 +71,7 @@ do $$
         if table_exists then
             begin
                 execute format('select count(*) from %I', rec.table_name) into row_count;
-                raise notice '%   %   %', rec.table_name, rec.column_count, row_count;
+                raise notice '% | % | %', rec.table_name, rec.column_count, row_count;
             exception when others then
                 raise notice 'ошибка при подсчете строк в таблице %: %', rec.table_name, sqlerrm;
             end;
