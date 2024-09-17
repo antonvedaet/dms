@@ -13,7 +13,7 @@ def main():
     parser.add_argument("-u", "--username", required=True)
     parser.add_argument("-p", "--password", required=True)
     parser.add_argument("-s", "--schema", required=True)
-    parser.add_argument("-s", "--database", required=True)
+    parser.add_argument("-d", "--database", required=True)
 
     args = parser.parse_args()
 
