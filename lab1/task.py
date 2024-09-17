@@ -13,6 +13,7 @@ def main():
     parser.add_argument("-u", "--username", required=True)
     parser.add_argument("-p", "--password", required=True)
     parser.add_argument("-s", "--schema", required=True)
+    parser.add_argument("-s", "--database", required=True)
 
     args = parser.parse_args()
 
@@ -32,8 +33,8 @@ def main():
         if args.password:
             os.environ["PGPASSWORD"] = args.password
         output = subprocess.run(["psql", "-h", "localhost", "-p", "5432", "-U",
-                                 args.username, "-d", "ucheb", "-f", f"/tmp/{tempfile_filename}.sql"])
-        print(output)
+                                 args.username, "-d", args.database, "-f", f"/tmp/{tempfile_filename}.sql"])
+        print(output.returncode)
 
 
 if __name__ == "__main__":
