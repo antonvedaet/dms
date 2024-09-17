@@ -75,8 +75,6 @@ do $$
             exception when others then
                 raise notice 'ошибка при подсчете строк в таблице %: %', rec.table_name, sqlerrm;
             end;
-        else
-            raise notice 'таблица % не существует или недоступна.', rec.table_name;
         end if;
     end loop;
 
